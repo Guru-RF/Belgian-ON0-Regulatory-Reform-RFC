@@ -1,13 +1,13 @@
 # RFC: Modernisation of Belgian ON0 Amateur Radio Station Authorisations
 
 **Status:** Draft for discussion — not an adopted UBA position or BIPT rule  
-**Version:** 0.1  
+**Version:** 0.2  
 **Date:** 21 October 2026  
 **Scope:** Belgian unattended amateur radio stations (ON0), including repeaters, beacons and other authorised automatic stations  
 **Intended audience:** UBA, other recognised amateur-radio associations and qualifying clubs, BIPT/IBPT, and the competent federal authorities  
 **Language:** English working draft; legal wording should be prepared and checked in Dutch and French before formal submission
 
-> **Important:** This document is a regulatory reform proposal (RFC). The classifications, free notifications, and new power-authorisation model described below are **not current law**. No operator should change a characteristic requiring prior BIPT approval merely because this RFC proposes a free notification procedure.
+> **Important:** This document is a regulatory reform proposal (RFC). The classifications, free notifications, free partial surrender and new power-authorisation model described below are **not current law**, except where the text explicitly marks something as **current practice**. No operator should change a characteristic requiring prior BIPT approval merely because this RFC proposes a free notification procedure.
 
 ## 1. Executive summary
 
@@ -18,10 +18,10 @@ This RFC proposes:
 1. **Three categories of administrative actions:**
    - **A — Fundamental changes:** substantive changes requiring assessment and approval; chargeable.
    - **B — Corrections and minor technical notifications:** clerical corrections, maintenance updates and non-substantive changes; free.
-   - **C — Voluntary termination or reduction:** surrender of a station or frequency; free, with a credit for unexpired annual fees where a corresponding fee was paid and the applicable refund rules permit it.
+   - **C — Voluntary termination or reduction:** surrender of a station or frequency. Surrendering an entire ON0 authorisation, or one of several separately billed stations, is **already free today** and already yields a pro-rata credit of the unexpired annual fee. The proposal is to extend the same treatment to deleting a single TX frequency while the station stays in operation, which is still billable today.
 2. **A better power model:** use the power delivered to the antenna and **ERP/EIRP**, including the RF path losses and antenna gain, as principal coordination parameters instead of relying solely on a transmitter-output figure.
 3. **Two distinct datasets:** the **authorised operational envelope** and the **actual installation**. Hardware changes that remain within the envelope should normally require only notification.
-4. **A streamlined technical register:** allow associations and station managers to maintain accurate data, ideally through a digital workflow such as `on0.be`, while preserving BIPT's final regulatory authority.
+4. **A lean licence and an open technical register:** the licence should hold only the information the regulator needs. All other technical and operational data lives in the `on0.be` registry, an open-source initiative supported by all associations, which anyone can fork, copy, install and extend. BIPT keeps final regulatory authority.
 5. **A targeted legal change:** clarify the fee provisions and the legal treatment of corrections, RX-only changes, partial surrender and power limits.
 
 The objective is to improve **spectrum management, interference coordination, technical accuracy and administrative efficiency**, not to reduce regulatory oversight where it is genuinely needed.
@@ -41,7 +41,11 @@ Examples include:
 - Changing a receiver frequency without changing the station's own transmitted frequency or technical limits.
 - Voluntarily relinquishing an unused frequency.
 
-Treating these events like an additional TX frequency or a relocation can impose disproportionate costs and encourages operators to leave obsolete information in the licensing database. Charging to surrender a frequency can also discourage prompt release of unused spectrum.
+Treating these events like an additional TX frequency or a relocation can impose disproportionate costs and encourages operators to leave obsolete information in the licensing database.
+
+Surrendering a whole station is already free and yields a pro-rata credit of the annual fee. Deleting a single TX frequency from a station that stays in operation, however, is still processed as a billable modification. That charge discourages prompt release of unused spectrum.
+
+A related issue is that the licence itself carries detailed installation data (antenna model, losses, contacts) that the regulator does not need in order to grant or enforce the authorisation. Every change to such data then risks becoming a licence event.
 
 A second issue is that the output of an individual transmitter is not necessarily the RF power presented to the antenna. Repeaters routinely use cavities, duplexers, multicouplers, filters, combiners and long feeder runs. A power field that ignores these losses can misrepresent the actual transmitted signal used in coverage and interference planning.
 
@@ -51,11 +55,17 @@ A second issue is that the output of an individual transmitter is not necessaril
 
 - Charge application fees where a **substantive regulatory assessment** is necessary.
 - Make clerical corrections and routine non-substantive updates **free and straightforward**.
-- Make voluntary surrender of stations or frequencies **free of new application charges**.
-- Apply a credit for unused annual fees where an individually charged station or right is terminated and the legal conditions for credit are met.
+- Extend the existing free surrender of stations to the **surrender of individual TX frequencies**, so that releasing a frequency while keeping the station in operation no longer carries a modification charge.
+- Keep the licence lean: it should hold **only the information the regulator needs**. All other data belongs in the open-source `on0.be` registry, which all associations support.
 - Improve the accuracy of RF calculations using real installed-system parameters.
 - Preserve BIPT's authority to review potential interference, safety, compliance and spectrum-use issues.
 - Make the same procedures available to every eligible amateur-radio association or club, not only one organisation.
+
+### Already in place today (stated for completeness, not proposed)
+
+- Voluntary surrender of an entire ON0 authorisation is free of application charges and yields a pro-rata credit of the unexpired annual fee.
+- Removing one of several separately authorised and billed stations is treated the same way.
+- Credit is limited to the unexpired portion of annual charges actually attributable to the terminated licence, station or right, under the applicable statutory rules (Article 43 of the Royal Decree). Previously paid application fees are not refunded.
 
 ### Non-goals
 
@@ -111,16 +121,20 @@ Examples, subject to the stated conditions:
 
 ### Category C — Voluntary surrender or reduction (free)
 
-**Proposed process:** authenticated termination/deletion notice -> effective termination date -> immediate register update -> BIPT confirmation -> credit of applicable unused annual charges. **No new application fee for the act of surrender.**
+**Current practice (already in force, stated here for completeness):**
 
-Examples:
+- Surrendering an entire ON0 authorisation is free of any application charge. The unexpired portion of the annual fee is credited pro rata.
+- Removing one of several separately authorised and billed stations is handled in the same way.
+- **Refund principle as applied today:** only the **unexpired portion of annual charges actually attributable to the terminated licence, station or right** is credited, according to the applicable statutory rules (Article 43, with a minimum charge of 30 days). There is no separate per-frequency refund where the annual charge is per station rather than per frequency. Previously incurred application fees are distinct from unused annual fees and are not refunded.
 
-- Surrendering an entire ON0 authorisation.
-- Deleting a TX frequency while keeping a station in operation.
-- Removing one of several separately authorised/billed stations.
+**Still billable today (proposed to become free):**
+
+- Deleting a TX frequency while keeping the station in operation. This is currently processed as a paid licence modification.
 - Reducing the scope of a licence or relinquishing an unused allocation without requesting replacement transmission rights.
 
-**Refund principle:** reimburse/credit only the **unexpired portion of annual charges actually attributable to the terminated licence, station or right**, according to the applicable statutory rules. Do not presume a separate per-frequency refund where the annual charge is per station rather than per frequency. Previously incurred application fees are distinct from unused annual fees and are not proposed to be refunded automatically.
+**Proposed process for all Category C events:** authenticated termination/deletion notice -> effective termination date -> immediate register update -> BIPT confirmation -> credit of applicable unused annual charges where the existing rules already provide one. **No new application fee for the act of surrender, whether full or partial.**
+
+The proposal does not change the refund principle. It only removes the modification charge for partial surrender. Whether a partial surrender creates a credit still depends on whether a separately charged right is terminated.
 
 ### Summary matrix
 
@@ -139,8 +153,8 @@ Examples:
 | Antenna height change | A or B* | Depends | Impact-based |
 | Internet access Yes/No with no other operating change | B | No | Notification |
 | RX-only frequency change | B | No | Planning/coordination |
-| Surrender one TX frequency | C | No | Register update |
-| Surrender entire station | C | No | Termination and eligible credit |
+| Surrender one TX frequency, station stays in operation | C (proposed) | No — **currently yes**, modification fee | Register update |
+| Surrender entire station or a separately billed station | C (current practice) | No — already free, pro-rata credit | Termination and eligible credit |
 
 \* **Open question:** establish objective criteria for which responsible-person changes or antenna modifications require regulatory approval. Do not automatically classify all of them as free.
 
@@ -234,6 +248,8 @@ The licence and register should distinguish two linked records:
 
 **Rule:** updating inventory data inside an unchanged authorised envelope should not by itself trigger a fee or require reissuance of a licence PDF. Where a reported change crosses a binding limit, it must be treated as Category A and approved before operation.
 
+**Where each record lives:** record A is the licence itself. It should contain nothing beyond what the regulator needs to grant and enforce the authorisation. Record B lives in the `on0.be` registry. The registry is an open-source initiative: anyone can fork, copy, install and extend it. All associations support this division of responsibilities. The licence then stops being the place where antenna models, feeder losses and contact details are maintained.
+
 ## 7. RX frequencies: coordination rather than new TX rights
 
 A receiver frequency is relevant to **frequency planning**, but receiving on a frequency is not equivalent to the unattended station being granted another transmitted frequency.
@@ -275,8 +291,8 @@ The example is **illustrative only**; it does not establish that this licence co
 
 - **Royal Decree of 18 December 2009**, concerning private radiocommunications and usage rights, is the principal framework.
 - **Article 1** defines the transmitting installation, power at its output, power at antenna input, and effective radiated power. It includes ancillary RF equipment such as filters, splitters and cavities in the definition of the transmitting installation.
-- **Article 35**, as amended, provides for an application fee and for a modification fee equal to half the application fee. An express general exception for the proposed Category B and partial Category C actions should be considered.
-- **Article 43**, as amended in 2013 and 2018, provides for a credit note when a station is decommissioned, covering the remaining days, with a minimum charge of 30 days. Its application to *partial* deletion of a frequency from a multi-frequency licence needs clarification. There is no basis to assume a per-frequency refund where no separate annual per-frequency right was paid.
+- **Article 35**, as amended, provides for an application fee and for a modification fee equal to half the application fee. This modification fee is what is currently charged when a TX frequency is deleted from a licence that stays in operation. An express general exception for the proposed Category B and partial Category C actions should be considered.
+- **Article 43**, as amended in 2013 and 2018, provides for a credit note when a station is decommissioned, covering the remaining days, with a minimum charge of 30 days. This is current practice for full surrender of a station: the surrender is free and the unexpired annual fee is credited. Its application to *partial* deletion of a frequency from a multi-frequency licence needs clarification. There is no basis to assume a per-frequency refund where no separate annual per-frequency right was paid.
 - **Article 44** provides annual indexation of amounts. BIPT publishes the resulting tariffs, but an exemption overriding a mandatory Royal Decree fee will normally require a change in the relevant regulation rather than a unilateral tariff decision.
 - The **BIPT decision of 24 May 2019** governs amateur frequency bands, powers and transmission modes. Any new ON0 power model must remain compatible with those requirements or the relevant decision must be amended as part of the reform.
 
@@ -306,9 +322,11 @@ The example is **illustrative only**; it does not establish that this licence co
 >
 > Wijzigingen die binnen alle vergunde grenswaarden blijven en de storings- of veiligheidsvoorwaarden niet wezenlijk wijzigen, kunnen via kosteloze technische kennisgeving worden verwerkt.
 
-These are **discussion clauses**, not instructions to disregard the existing definition of output power or a currently binding licence limit.
+These are **discussion clauses**, not instructions to disregard the existing definition of output power or a currently binding licence limit. In the first Dutch clause, the free *gehele* (full) surrender restates current practice; the new element is the free *gedeeltelijke* (partial) surrender. The third clause restates the existing Article 43 credit rule rather than creating a new one.
 
-## 11. Proposed digital workflow (`on0.be` or equivalent)
+## 11. Proposed digital workflow (`on0.be`)
+
+The `on0.be` registry is an open-source initiative. Anyone can fork, copy, install and extend it. All associations support using it as the single home for the information that does not belong in the licence. The licence itself is reduced to what the regulator needs; everything else is maintained in the registry.
 
 A public read-only register can coexist with a restricted workflow for authorised station managers, associations and BIPT.
 
@@ -327,7 +345,8 @@ A future system could calculate antenna input power and ERP/EIRP automatically, 
 - **More accurate frequency planning:** reflects actual radiated power and antenna configuration.
 - **Fewer unnecessary regulatory transactions:** BIPT can focus on changes that matter.
 - **Better data quality:** operators have an incentive to report equipment and maintenance updates promptly.
-- **More efficient spectrum usage:** voluntary release of unused frequencies is not financially penalised.
+- **More efficient spectrum usage:** voluntary release of unused frequencies is not financially penalised, as full station surrender already is not.
+- **A lean licence:** the authorisation holds only what the regulator needs. Everything else is maintained in the open-source `on0.be` registry, where it can be kept accurate without touching the licence.
 - **Proportionate charges:** substantive work remains chargeable; simple maintenance and corrections do not.
 - **Consistent treatment:** shared categories can apply across associations and qualifying clubs.
 - **Greater transparency:** explicit distinction between approved ceilings and the equipment currently installed.
@@ -350,7 +369,8 @@ A future system could calculate antenna input power and ERP/EIRP automatically, 
 ## 14. Proposed next steps
 
 - [ ] Obtain input from UBA technical and legal colleagues.
-- [ ] Compare actual BIPT invoices and correction requests with the A/B/C matrix.
+- [ ] Compare actual BIPT invoices and correction requests with the A/B/C matrix, including at least one invoiced partial frequency deletion and one credited full surrender.
+- [ ] Agree with BIPT and the associations the minimal field set the licence must contain; move all other fields to the `on0.be` registry schema.
 - [ ] Request BIPT's written interpretation of Article 35, Article 43 and the power reference point on ON0 permits.
 - [ ] Seek feedback from VRA, UFRC and other relevant applicants/associations.
 - [ ] Agree technical criteria for non-substantive antenna and power changes.
@@ -373,6 +393,11 @@ Primary/regulatory material and published guidance:
 8. **ON0RFG station authorisation**, issued 15 September 2026, annex page 3 (example supplied for this discussion; not embedded or redistributed here).
 
 **Verification note:** The OpenJustice pages above reproduce Belgian Official Journal documents; they are not a consolidated official legal opinion. Prior to formal submission, validate the current consolidated text and subsequent amendments against the Belgian Official Journal/eJustice and with the competent authorities.
+
+## 16. Revision history
+
+- **0.2 (21 October 2026):** Full station surrender, removal of a separately billed station and the pro-rata credit rule are now stated as current practice rather than proposals. Deletion of a single TX frequency while the station stays in operation remains the open Category C goal. Added the principle that the licence holds only regulator-relevant data and that everything else lives in the open-source `on0.be` registry, supported by all associations.
+- **0.1 (21 October 2026):** Initial draft.
 
 ---
 
